@@ -1,0 +1,173 @@
+-- beasts
+UPDATE `creature_template` SET  `mindmg` =  '400',
+`maxdmg` =  '650' WHERE  `creature_template`.`entry` =10990;
+
+UPDATE `creature_template` SET  `mindmg` =  '400',
+`maxdmg` =  '650' WHERE  `creature_template`.`entry` =10981;
+
+UPDATE `creature_template` SET  `minlevel` =  '70',
+`maxlevel` =  '71' WHERE  `creature_template`.`entry` =10981;
+
+UPDATE `creature_template` SET  `minlevel` =  '70',
+`maxlevel` =  '71' WHERE  `creature_template`.`entry` =10990;
+
+-- Wachen
+UPDATE `creature_template` SET  `mindmg` =  '500',
+`maxdmg` =  '650' WHERE  `creature_template`.`entry` =12053;
+
+UPDATE `creature_template` SET  `mindmg` =  '500',
+`maxdmg` =  '650' WHERE  `creature_template`.`entry` =12050;
+
+-- wrong factions
+UPDATE `creature_template` SET  `faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =14764;
+
+UPDATE `creature_template` SET  `faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =13797;
+
+UPDATE `creature_template` SET  `faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =13086;
+
+UPDATE `creature_template` SET  `faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =13087;
+
+UPDATE `creature_template` SET  `faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =13317;
+
+UPDATE `creature_template` SET  `faction_A` =  '1214',
+`faction_H` =  '1214' WHERE  `creature_template`.`entry` =13088;
+
+UPDATE `creature_template` SET  `faction_A` =  '1214',
+`faction_H` =  '1214' WHERE  `creature_template`.`entry` =13097;
+
+UPDATE `creature_template` SET  `faction_A` =  '1214',
+`faction_H` =  '1214' WHERE  `creature_template`.`entry` =13316;
+
+UPDATE `creature_template` SET  `faction_A` =  '1214',
+`faction_H` =  '1214' WHERE  `creature_template`.`entry` =13089;
+
+UPDATE `creature_template` SET  `faction_A` =  '1214',
+`faction_H` =  '1214' WHERE  `creature_template`.`entry` =10981;
+
+UPDATE `creature_template` SET  `faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =10990;
+
+-- wrong hp
+
+UPDATE `creature_template` SET  `minhealth` =  '10000',
+`maxhealth` =  '10000' WHERE  `creature_template`.`entry` =13359;
+
+UPDATE `creature_template` SET  `minhealth` =  '10000',
+`maxhealth` =  '10000' WHERE  `creature_template`.`entry` =13358;
+
+UPDATE `creature_template` SET  `minhealth` =  '10000',
+`maxhealth` =  '10000' WHERE  `creature_template`.`entry` =12050;
+
+UPDATE `creature_template` SET  `minhealth` =  '10000',
+`maxhealth` =  '10000' WHERE  `creature_template`.`entry` =12053;
+
+UPDATE `creature_template` SET  `minhealth` =  '280000',
+`maxhealth` =  '300000' WHERE  `creature_template`.`entry` =11947;
+
+UPDATE `creature_template` SET  `minhealth` =  '280000',
+`maxhealth` =  '300000' WHERE  `creature_template`.`entry` =11949;
+
+-- wrong lvl
+
+UPDATE `creature_template` SET  `minlevel` =  '73',
+`maxlevel` =  '73' WHERE  `creature_template`.`entry` =11947;
+
+UPDATE `creature_template` SET  `minlevel` =  '73',
+`maxlevel` =  '73' WHERE  `creature_template`.`entry` =11949;
+
+-- wrong dmg
+
+UPDATE `creature_template` SET  `minhealth` =  '6354',
+`maxhealth` =  '6523' WHERE  `creature_template`.`entry` =12127;
+
+UPDATE `creature_template` SET  `minlevel` =  '70',
+`maxlevel` =  '71',
+`minhealth` =  '40312',
+`maxhealth` =  '44334',
+`mindmg` =  '2400',
+`maxdmg` =  '3632' WHERE  `creature_template`.`entry` =13797;
+
+UPDATE `creature_template` SET  `minhealth` =  '25000',
+`maxhealth` =  '27000',
+`mindmg` =  '3690',
+`maxdmg` =  '4350' WHERE  `creature_template`.`entry` =13447;
+
+UPDATE `creature_template` SET  `minlevel` =  '70',
+`maxlevel` =  '71',
+`minhealth` =  '40312',
+`maxhealth` =  '44334',
+`mindmg` =  '2400',
+`maxdmg` =  '3632' WHERE  `creature_template`.`entry` =13798;
+
+UPDATE `creature_template` SET  `minlevel` =  '63',
+`maxlevel` =  '64',
+`mindmg` =  '200',
+`maxdmg` =  '250' WHERE  `creature_template`.`entry` =14282;
+
+UPDATE `creature_template` SET  `minlevel` =  '70',
+`maxlevel` =  '71',
+`minhealth` =  '40312',
+`maxhealth` =  '44334',
+`mindmg` =  '2400',
+`maxdmg` =  '3632' WHERE  `creature_template`.`entry` =13176;
+
+-- wrong hp
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14764;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14763;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14762;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14765;
+
+UPDATE `creature_template` SET  `minhealth` =  '5321',
+`maxhealth` =  '6312' WHERE  `creature_template`.`entry` =13816;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14777;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14773;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14776;
+
+UPDATE `creature_template` SET  `minhealth` =  '100000',
+`maxhealth` =  '110000' WHERE  `creature_template`.`entry` =14772;
+
+-- Balinda water elementar
+UPDATE `creature_template` SET  `minlevel` =  '71',
+`maxlevel` =  '71',
+`minhealth` =  '13182',
+`maxhealth` =  '13182',
+`minmana` =  '12243',
+`maxmana` =  '12243',
+`faction_A` =  '1216',
+`faction_H` =  '1216' WHERE  `creature_template`.`entry` =25040;
+
+UPDATE `creature_template` SET  `minmana` =  '68772',
+`maxmana` =  '68772' WHERE  `creature_template`.`entry` =11949;
+
+-- Warmaster usw.
+UPDATE `creature_template` SET  `attackpower` =  '15000' WHERE  `creature_template`.`entry` =11947;
+
+UPDATE `creature_template` SET  `mindmg` =  '3000', `maxdmg` =  '6000', `attackpower` =  '10000' WHERE  `creature_template`.`entry` =14763;
+UPDATE `creature_template` SET  `mindmg` =  '3000', `maxdmg` =  '6000', `attackpower` =  '10000' WHERE  `creature_template`.`entry` =14762;
+UPDATE `creature_template` SET  `mindmg` =  '3000', `maxdmg` =  '6000', `attackpower` =  '10000' WHERE  `creature_template`.`entry` =14765;
+UPDATE `creature_template` SET  `mindmg` =  '3000', `maxdmg` =  '6000', `attackpower` =  '10000' WHERE  `creature_template`.`entry` =14764;
+
+UPDATE `creature_template` SET  `minhealth` =  '320000',
+`maxhealth` =  '350000' WHERE  `creature_template`.`entry` =11946;
+
+UPDATE `creature_template` SET  `minhealth` =  '320000',
+`maxhealth` =  '350000' WHERE  `creature_template`.`entry` =11948;

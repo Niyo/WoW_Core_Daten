@@ -1,0 +1,27 @@
+-- Prist -- Human
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('1',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('1',  '5',  '1180', NULL ,  '1');
+
+-- Prist -- Dwarf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '5',  '1180', NULL ,  '1');
+
+-- Prist -- Night Elf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '5',  '1180', NULL ,  '1');
+
+-- Prist -- Undead
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('5',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('5',  '5',  '1180', NULL ,  '1');
+
+-- Prist -- Troll
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '5',  '1180', NULL ,  '1');
+
+-- Prist -- Bloodelf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '5',  '1180', NULL ,  '1');
+
+-- Prist -- Draenei
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '5',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '5',  '1180', NULL ,  '1');

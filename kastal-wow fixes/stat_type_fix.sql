@@ -1,0 +1,21 @@
+UPDATE `item_template` SET `stat_type1` = 16 WHERE `stat_type1` = 31;
+UPDATE `item_template` SET `stat_type2` = 16 WHERE `stat_type2` = 31;
+UPDATE `item_template` SET `stat_type3` = 16 WHERE `stat_type3` = 31;
+UPDATE `item_template` SET `stat_type4` = 16 WHERE `stat_type4` = 31;
+UPDATE `item_template` SET `stat_type5` = 16 WHERE `stat_type5` = 31;
+UPDATE `item_template` SET `stat_type6` = 16 WHERE `stat_type6` = 31;
+UPDATE `item_template` SET `stat_type7` = 16 WHERE `stat_type7` = 31;
+UPDATE `item_template` SET `stat_type8` = 16 WHERE `stat_type8` = 31;
+UPDATE `item_template` SET `stat_type9` = 16 WHERE `stat_type9` = 31;
+UPDATE `item_template` SET `stat_type10` = 16 WHERE `stat_type10` = 31;
+
+UPDATE `item_template` SET `stat_type1` = 19 WHERE `stat_type1` = 32;
+UPDATE `item_template` SET `stat_type2` = 19 WHERE `stat_type2` = 32;
+UPDATE `item_template` SET `stat_type3` = 19 WHERE `stat_type3` = 32;
+UPDATE `item_template` SET `stat_type4` = 19 WHERE `stat_type4` = 32;
+UPDATE `item_template` SET `stat_type5` = 19 WHERE `stat_type5` = 32;
+UPDATE `item_template` SET `stat_type6` = 19 WHERE `stat_type6` = 32;
+UPDATE `item_template` SET `stat_type7` = 19 WHERE `stat_type7` = 32;
+UPDATE `item_template` SET `stat_type8` = 19 WHERE `stat_type8` = 32;
+UPDATE `item_template` SET `stat_type9` = 19 WHERE `stat_type9` = 32;
+UPDATE `item_template` SET `stat_type10` = 19 WHERE `stat_type10` = 32;

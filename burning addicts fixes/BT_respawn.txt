@@ -1,0 +1,20 @@
+-- Set all respawntimes to 2 hours
+Update creature set spawntimesecs = 10800 where map = 564;
+
+-- Set Boss respawntimes to 7 days
+Update creature set spawntimesecs = 604800 where id = 23420;
+Update creature set spawntimesecs = 604800 where id = 23419;
+Update creature set spawntimesecs = 604800 where id = 23418;
+Update creature set spawntimesecs = 604800 where id = 22949;
+Update creature set spawntimesecs = 604800 where id = 22948;
+Update creature set spawntimesecs = 604800 where id = 22950;
+Update creature set spawntimesecs = 604800 where id = 22887;
+Update creature set spawntimesecs = 604800 where id = 22917;
+Update creature set spawntimesecs = 604800 where id = 22951;
+Update creature set spawntimesecs = 604800 where id = 22947;
+Update creature set spawntimesecs = 604800 where id = 22841;
+Update creature set spawntimesecs = 604800 where id = 22898;
+Update creature set spawntimesecs = 604800 where id = 22879;
+Update creature set spawntimesecs = 604800 where id = 22952;
+-- Set Akama respawntime to 2 mins
+Update creature set spawntimesecs = 3600 where id = 22990;

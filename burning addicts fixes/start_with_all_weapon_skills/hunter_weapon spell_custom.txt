@@ -1,0 +1,83 @@
+-- Hunter -- Dwarf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('3',  '3',  '197', NULL ,  '1');
+
+-- Hunter -- Nightelf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '3',  '197', NULL ,  '1');
+
+-- Hunter -- Tauren
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '3',  '197', NULL ,  '1');
+
+-- Hunter -- Draenei
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '3',  '197', NULL ,  '1');
+
+-- Hunter -- Orc
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '3',  '197', NULL ,  '1');
+
+-- Hunter -- Troll
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '3',  '197', NULL ,  '1');
+
+-- Hunter -- Bloodelf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10,  '3',  '5011', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '2567', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '264', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '227', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '202', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '201', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '200', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('10',  '3',  '197', NULL ,  '1');

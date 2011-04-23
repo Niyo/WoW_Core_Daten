@@ -1,0 +1,27 @@
+-- Shaman -- Draenei
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '7',  '196', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '7',  '197', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '7',  '199', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '7',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('11',  '7',  '15590', NULL ,  '1');
+
+-- Shaman -- Orc
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '7',  '196', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '7',  '197', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '7',  '199', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '7',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('2',  '7',  '15590', NULL ,  '1');
+
+-- Shaman -- Troll
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '7',  '196', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '7',  '197', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '7',  '199', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '7',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('8',  '7',  '15590', NULL ,  '1');
+
+-- Shaman -- Tauren
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '7',  '196', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '7',  '197', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '7',  '199', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '7',  '1180', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '7',  '15590', NULL ,  '1');

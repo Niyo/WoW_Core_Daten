@@ -1,0 +1,29 @@
+-- Extendedcost = 2241 ==8k ehre 10 eotf badges
+
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33801 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33765 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =34059 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33661 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33938 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33843 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33953 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =34015 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =34016 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33841 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33950 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33705 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33755 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33764 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33735 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33734 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33689 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33736 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33756 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =34066 AND `entry` =999006;
+
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33941 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33947 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33662 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33944 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33681 AND `entry` =999006;
+UPDATE `npc_vendor` SET  `ExtendedCost` =  '2241' WHERE `item` =33842 AND `entry` =999006;

@@ -1,0 +1,5 @@
+delete from playercreateinfo_spell_custom where spell = 22055;
+delete from playercreateinfo_spell_custom where spell = 9186;
+delete from playercreateinfo_spell_custom where spell = 22018;
+delete from playercreateinfo_spell_custom where spell = 22019;
+delete from playercreateinfo_action where action = 20544;

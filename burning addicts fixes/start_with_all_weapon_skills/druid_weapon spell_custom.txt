@@ -1,0 +1,9 @@
+-- Druid -- Night Elf
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '11',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '11',  '198', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('4',  '11',  '199', NULL ,  '1');
+
+-- Druid -- Tauren
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '11',  '15590', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '11',  '198', NULL ,  '1');
+INSERT INTO `playercreateinfo_spell_custom` (`race` ,`class` ,`Spell` ,`Note` ,`Active`)VALUES ('6',  '11',  '199', NULL ,  '1');

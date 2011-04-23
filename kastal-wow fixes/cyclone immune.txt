@@ -1,0 +1,64 @@
+Index: src/game/SpellAuras.cpp
+===================================================================
+--- src/game/SpellAuras.cpp (revision 6767)
++++ src/game/SpellAuras.cpp (working copy)
+@@ -5790,10 +5790,14 @@
+ 
+             uint32 heal = pCaster->SpellHealingBonus(spellProto, uint32(new_damage * multiplier), DOT, pCaster);
+ 
+-            int32 gain = pCaster->ModifyHealth(heal);
+-            pCaster->getHostilRefManager().threatAssist(pCaster, gain * 0.5f, spellProto);
++           //only heal caster for leeched health if caster can be healed
++           if(!(m_target->IsBanished()))
++           {
++               int32 gain = pCaster->ModifyHealth(heal);
++                pCaster->getHostilRefManager().threatAssist(pCaster, gain * 0.5f, spellProto);
+ 
+-            pCaster->SendHealSpellLog(pCaster, spellProto->Id, heal);
++                pCaster->SendHealSpellLog(pCaster, spellProto->Id, heal);
++           }
+             break;
+         }
+         case SPELL_AURA_PERIODIC_HEAL:
+@@ -5806,6 +5810,9 @@
+             // heal for caster damage (must be alive)
+             if(m_target != pCaster && GetSpellProto()->SpellVisual==163 && !pCaster->isAlive())
+                 return;
++            //don't heal caster if banished
++           if(m_target->IsBanished())
++                return;
+ 
+             // ignore non positive values (can be result apply spellmods to aura damage
+             uint32 amount = m_modifier.m_amount > 0 ? m_modifier.m_amount : 0;
+Index: src/game/Unit.cpp
+===================================================================
+--- src/game/Unit.cpp   (revision 6767)
++++ src/game/Unit.cpp   (working copy)
+@@ -10460,6 +10460,16 @@
+     return GetSpellSpecific(getTransForm())==SPELL_MAGE_POLYMORPH;
+ }
+ 
++bool Unit::IsBanished() const
++{
++    AuraList const& mImmunityAuraList = GetAurasByType(SPELL_AURA_SCHOOL_IMMUNITY);
++    for(AuraList::const_iterator i = mImmunityAuraList .begin();i != mImmunityAuraList .end(); ++i)
++    {
++        if (((*i)->GetSpellProto()->Mechanic) == MECHANIC_BANISH)
++            return true;
++    }
++    return false;
++}
+ void Unit::SetDisplayId(uint32 modelId)
+ {
+     SetUInt32Value(UNIT_FIELD_DISPLAYID, modelId);
+Index: src/game/Unit.h
+===================================================================
+--- src/game/Unit.h (revision 6767)
++++ src/game/Unit.h (working copy)
+@@ -908,6 +908,7 @@
+         bool isFeared()  const { return HasAuraType(SPELL_AURA_MOD_FEAR); }
+         bool isInRoots() const { return HasAuraType(SPELL_AURA_MOD_ROOT); }
+         bool IsPolymorphed() const;
++         bool IsBanished() const;
+ 
+         bool isFrozen() const;

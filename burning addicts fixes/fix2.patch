@@ -1,0 +1,1251 @@
+# HG changeset patch
+# User stfx
+# Date 1283647382 -7200
+# Node ID ede45367712a9aafc2d8b3c65cb120614506184f
+# Parent  c57583125f6b603b692adbe96aed495e018aaf7d
+Temp revert 679, 680, 682
+
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/npc/npcs_special.cpp
+--- a/src/bindings/scripts/scripts/npc/npcs_special.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/npc/npcs_special.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -478,7 +478,7 @@
+ 
+ void npc_doctorAI::PatientDied(Location* Point)
+ {
+-    Player* player = Unit::GetPlayer(*me, Playerguid);
++    Player* player = Unit::GetPlayer(Playerguid);
+     if (player && ((player->GetQuestStatus(6624) == QUEST_STATUS_INCOMPLETE) || (player->GetQuestStatus(6622) == QUEST_STATUS_INCOMPLETE)))
+     {
+         PatientDiedCount++;
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/azshara/azshara.cpp
+--- a/src/bindings/scripts/scripts/zone/azshara/azshara.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/azshara/azshara.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -307,7 +307,7 @@
+                     me->AI_SendMoveToPacket(3706.39, -3969.15, 35.9118, 0, 0, 0);
+                 }
+                 //begin swimming and summon depth charges
+-                Player* player = Unit::GetPlayer(*me, PlayerGUID);
++                Player* player = Unit::GetPlayer(PlayerGUID);
+                 SendText(MSG_ESCAPE_NOTICE, player);
+                 DoCast(me, SPELL_PERIODIC_DEPTH_CHARGE);
+                 me->SetUnitMovementFlags(MOVEMENTFLAG_FLYING2 | MOVEMENTFLAG_SWIMMING);
+@@ -328,7 +328,7 @@
+ 
+         if (Grenade_Timer <= diff)
+         {
+-            Player *player = Unit::GetPlayer(*me, PlayerGUID);
++            Player *player = Unit::GetPlayer(PlayerGUID);
+             if (player)
+             {
+                DoScriptText(SAY_RIZZLE_GRENADE, me, player);
+@@ -339,7 +339,7 @@
+ 
+         if (Check_Timer <= diff)
+         {
+-            Player *player = Unit::GetPlayer(*me, PlayerGUID);
++            Player *player = Unit::GetPlayer(PlayerGUID);
+             if (!player)
+             {
+                 Despawn();
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/barrens/the_barrens.cpp
+--- a/src/bindings/scripts/scripts/zone/barrens/the_barrens.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/barrens/the_barrens.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -248,7 +248,7 @@
+             Player* pWarrior = NULL;
+ 
+             if (PlayerGUID)
+-                pWarrior = Unit::GetPlayer(*me, PlayerGUID);
++                pWarrior = Unit::GetPlayer(PlayerGUID);
+ 
+             if (!pWarrior)
+                 return;
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/black_temple/boss_mother_shahraz.cpp
+--- a/src/bindings/scripts/scripts/zone/black_temple/boss_mother_shahraz.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/black_temple/boss_mother_shahraz.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -230,7 +230,7 @@
+             for (uint8 i = 0; i < 3; ++i)
+             {
+                 if (TargetGUID[i])
+-                    targets[i] = Player::GetPlayer(*me, TargetGUID[i]);
++                    targets[i] = Player::GetPlayer(TargetGUID[i]);
+                 else
+                     targets[i] = NULL;
+             }
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/eversong_woods/eversong_woods.cpp
+--- a/src/bindings/scripts/scripts/zone/eversong_woods/eversong_woods.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/eversong_woods/eversong_woods.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -587,7 +587,7 @@
+     {
+         if (PlayerGUID)
+         {
+-            Player* player = Unit::GetPlayer(*me, PlayerGUID);
++            Player* player = Unit::GetPlayer(PlayerGUID);
+             if (player)
+                 player->FailQuest(QUEST_UNEXPECTED_RESULT);
+         }
+@@ -599,7 +599,7 @@
+         {
+             if (PlayerGUID)
+             {
+-                Player* player = Unit::GetPlayer(*me, PlayerGUID);
++                Player* player = Unit::GetPlayer(PlayerGUID);
+                 if (player)
+                     player->CompleteQuest(QUEST_UNEXPECTED_RESULT);
+             }
+@@ -703,7 +703,7 @@
+     {
+         if (PlayerGUID && !Completed)
+         {
+-            Player* player = Unit::GetPlayer(*me, PlayerGUID);
++            Player* player = Unit::GetPlayer(PlayerGUID);
+             if (player)
+                 player->FailQuest(QUEST_POWERING_OUR_DEFENSES);
+         }
+@@ -717,7 +717,7 @@
+             Completed = true;
+             if (PlayerGUID)
+             {
+-                Player* player = Unit::GetPlayer(*me, PlayerGUID);
++                Player* player = Unit::GetPlayer(PlayerGUID);
+                 if (player)
+                     player->CompleteQuest(QUEST_POWERING_OUR_DEFENSES);
+             }
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/isle_of_queldanas/isle_of_queldanas.cpp
+--- a/src/bindings/scripts/scripts/zone/isle_of_queldanas/isle_of_queldanas.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/isle_of_queldanas/isle_of_queldanas.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -110,7 +110,7 @@
+             PlayerGUID = caster->GetGUID();
+             if (PlayerGUID)
+             {
+-                Player* plr = Unit::GetPlayer(*me, PlayerGUID);
++                Player* plr = Unit::GetPlayer(PlayerGUID);
+                 if (plr && plr->GetQuestStatus(QUESTG) == QUEST_STATUS_INCOMPLETE)
+                     plr->KilledMonster(25086, me->GetGUID());
+             }
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/moonglade/moonglade.cpp
+--- a/src/bindings/scripts/scripts/zone/moonglade/moonglade.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/moonglade/moonglade.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -298,7 +298,7 @@
+         if (!PlayerGUID)
+             return;
+ 
+-        Player* pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++        Player* pPlayer = Unit::GetPlayer(PlayerGUID);
+         if (pPlayer && pPlayer->GetQuestStatus(10965) == QUEST_STATUS_INCOMPLETE)
+         {
+             pPlayer->FailQuest(10965);
+@@ -309,7 +309,7 @@
+ 
+     void EnterEvadeMode()
+     {
+-        Player* pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++        Player* pPlayer = Unit::GetPlayer(PlayerGUID);
+         if (pPlayer && pPlayer->isInCombat() && pPlayer->getAttackerForHelper())
+         {
+             AttackStart(pPlayer->getAttackerForHelper());
+@@ -358,7 +358,7 @@
+         {
+             if (checkPlayer_Timer <= diff)
+             {
+-                Player* pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++                Player* pPlayer = Unit::GetPlayer(PlayerGUID);
+                 if (pPlayer && pPlayer->isInCombat() && pPlayer->getAttackerForHelper())
+                     AttackStart(pPlayer->getAttackerForHelper());
+                 checkPlayer_Timer = 1000;
+@@ -368,7 +368,7 @@
+         if (Event_onWait && Event_Timer <= diff)
+         {
+ 
+-            Player* pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++            Player* pPlayer = Unit::GetPlayer(PlayerGUID);
+             if (!pPlayer || (pPlayer && pPlayer->GetQuestStatus(10965) == QUEST_STATUS_NONE))
+             {
+                 me->setDeathState(JUST_DIED);
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/mulgore/mulgore.cpp
+--- a/src/bindings/scripts/scripts/zone/mulgore/mulgore.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/mulgore/mulgore.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -137,7 +137,7 @@
+                 break;
+             case 3:
+                 STATE = 4;  //go home
+-                Player *plr = Unit::GetPlayer(*me, player);
++                Player *plr = Unit::GetPlayer(player);
+                 if (plr && plr->GetQuestStatus(11129) == QUEST_STATUS_INCOMPLETE)
+                     plr->CompleteQuest(11129);
+                 float x, y, z, z2, angle;
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/nagrand/nagrand.cpp
+--- a/src/bindings/scripts/scripts/zone/nagrand/nagrand.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/nagrand/nagrand.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -610,7 +610,7 @@
+                 if (fleeing && me->GetMotionMaster()->GetCurrentMovementGeneratorType() != FLEEING_MOTION_TYPE)
+                     fleeing = false;
+ 
+-                Player *player = Unit::GetPlayer(*me, PlayerGUID);
++                Player *player = Unit::GetPlayer(PlayerGUID);
+                 if (player && me->IsWithinDistInMap(player, 30))
+                 {
+                     if (!fleeing)
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/netherstorm/netherstorm.cpp
+--- a/src/bindings/scripts/scripts/zone/netherstorm/netherstorm.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/netherstorm/netherstorm.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -97,7 +97,7 @@
+ 
+         if (someplayer)
+         {
+-            Player* p = Unit::GetPlayer(*me, someplayer);
++            Player* p = Unit::GetPlayer(someplayer);
+             if (p)
+             {
+                 switch(me->GetEntry())
+@@ -253,7 +253,7 @@
+                     DoScriptText(EMOTE_COMPLETE, me);
+                     if (someplayer)
+                     {
+-                        Player* player = Unit::GetPlayer(*me, someplayer);
++                        Player* player = Unit::GetPlayer(someplayer);
+                         if (player)
+                            player->KilledMonster(me->GetEntry(),me->GetGUID());
+                         DoCast(me,SPELL_DISABLE_VISUAL);
+@@ -419,7 +419,7 @@
+     {
+         Creature *ardonis = Unit::GetCreature(*me,ardonisGUID);
+         Creature *pathaleon = Unit::GetCreature(*me,pathaleonGUID);
+-        Player *player = Unit::GetPlayer(*me, playerGUID);
++        Player *player = Unit::GetPlayer(playerGUID);
+ 
+         if (!ardonis || !pathaleon || !player)
+             return;
+@@ -445,7 +445,7 @@
+     {
+         if (Unit *ardonis = Unit::GetUnit(*me,ardonisGUID))
+         {
+-            Player *player = Unit::GetPlayer(*me, playerGUID);
++            Player *player = Unit::GetPlayer(playerGUID);
+ 
+             if (!player)
+                 return;
+@@ -502,7 +502,7 @@
+ 
+         Unit *ardonis = Unit::GetUnit(*me,ardonisGUID);
+         Unit *pathaleon = Unit::GetUnit(*me,pathaleonGUID);
+-        Player *player = Unit::GetPlayer(*me, playerGUID);
++        Player *player = Unit::GetPlayer(playerGUID);
+ 
+         if (!ardonis || !player)
+         {
+@@ -779,7 +779,7 @@
+ 
+         if (PlayerGUID) // start: support for quest 10190
+         {
+-            Player* pTarget = Unit::GetPlayer(*me, PlayerGUID);
++            Player* pTarget = Unit::GetPlayer(PlayerGUID);
+ 
+             if (pTarget && !Weak && me->GetHealth() < (me->GetMaxHealth() / 100 * WeakPercent)
+                 && pTarget->GetQuestStatus(10190) == QUEST_STATUS_INCOMPLETE)
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/orgrimmar/orgrimmar.cpp
+--- a/src/bindings/scripts/scripts/zone/orgrimmar/orgrimmar.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/orgrimmar/orgrimmar.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -97,7 +97,7 @@
+         if (CanEmote)
+             if (Reset_Timer <= diff)
+         {
+-            if (Player* temp = Unit::GetPlayer(*me, playerGUID))
++            if (Player* temp = Unit::GetPlayer(playerGUID))
+                 temp->FailQuest(QUEST_2460);
+             Reset();
+         } else Reset_Timer -= diff;
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/shadowmoon_valley/shadowmoon_valley.cpp
+--- a/src/bindings/scripts/scripts/zone/shadowmoon_valley/shadowmoon_valley.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/shadowmoon_valley/shadowmoon_valley.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -128,7 +128,7 @@
+             DoScriptText(SAY_JUST_EATEN, me);
+             if (PlayerGUID)
+             {
+-                Player* plr = Unit::GetPlayer(*me, PlayerGUID);
++                Player* plr = Unit::GetPlayer(PlayerGUID);
+                 if (plr && plr->GetQuestStatus(10804) == QUEST_STATUS_INCOMPLETE)
+                 {
+                     plr->KilledMonster(22131, me->GetGUID());
+@@ -259,7 +259,7 @@
+                 Tapped = false;
+                 if (PlayerGUID)
+                 {
+-                    Player* plr = Unit::GetPlayer(*me, PlayerGUID);
++                    Player* plr = Unit::GetPlayer(PlayerGUID);
+                     if (plr && plr->GetQuestStatus(10854) == QUEST_STATUS_INCOMPLETE)
+                     {
+                         plr->KilledMonster(22316, me->GetGUID());
+@@ -357,7 +357,7 @@
+         {
+             if (PlayerGUID)
+             {
+-                Player* plr = Unit::GetPlayer(*me, PlayerGUID);
++                Player* plr = Unit::GetPlayer(PlayerGUID);
+                 if (plr && plr->GetQuestStatus(11020) == QUEST_STATUS_INCOMPLETE)
+                     plr->KilledMonster(23209, me->GetGUID());
+             }
+@@ -704,7 +704,7 @@
+         }
+         if (PlayerGUID)
+         {
+-            Player* player = Unit::GetPlayer(*me, PlayerGUID);
++            Player* player = Unit::GetPlayer(PlayerGUID);
+             if (player)
+                 DoScriptText(OVERLORD_SAY_1, me, player);
+         }
+@@ -715,7 +715,7 @@
+ 
+     uint32 NextStep(uint32 Step)
+     {
+-        Player* plr = Unit::GetPlayer(*me, PlayerGUID);
++        Player* plr = Unit::GetPlayer(PlayerGUID);
+ 
+         Unit* Illi = Unit::GetUnit((*me), IllidanGUID);
+ 
+@@ -1319,7 +1319,7 @@
+             me->RemoveFlag(UNIT_FIELD_BYTES_1,8);
+             break;
+         case 5:
+-            if (Player* AggroTarget = (Unit::GetPlayer(*me, AggroTargetGUID)))
++            if (Player* AggroTarget = (Unit::GetPlayer(AggroTargetGUID)))
+             {
+                 me->SetUInt64Value(UNIT_FIELD_TARGET, AggroTarget->GetGUID());
+                 me->AddThreat(AggroTarget, 1);
+@@ -1327,7 +1327,7 @@
+             }
+             break;
+         case 6:
+-            if (Player* AggroTarget = (Unit::GetPlayer(*me, AggroTargetGUID)))
++            if (Player* AggroTarget = (Unit::GetPlayer(AggroTargetGUID)))
+             {
+                 me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
+                 me->clearUnitState(UNIT_STAT_ROOT);
+@@ -1495,7 +1495,7 @@
+                 {
+                     if (PlayerGUID)
+                     {
+-                        if (Player* pTarget = Unit::GetPlayer(*me, PlayerGUID))
++                        if (Player* pTarget = Unit::GetPlayer(PlayerGUID))
+                         {
+                             float x, y, z;
+                             pTarget->GetPosition(x,y,z);
+@@ -1520,7 +1520,7 @@
+ 
+     void CheckEventFail()
+     {
+-        Player* pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++        Player* pPlayer = Unit::GetPlayer(PlayerGUID);
+ 
+         if (!pPlayer)
+             return;
+@@ -1537,7 +1537,7 @@
+ 
+             for (Group::member_citerator itr = members.begin(); itr != members.end(); itr++)
+             {
+-                GroupMember = (Unit::GetPlayer(*me, itr->guid));
++                GroupMember = (Unit::GetPlayer(itr->guid));
+                 if (!GroupMember)
+                     continue;
+                 if (!GroupMember->IsWithinDistInMap(me, EVENT_AREA_RADIUS) && GroupMember->GetQuestStatus(QUEST_BATTLE_OF_THE_CRIMSON_WATCH) == QUEST_STATUS_INCOMPLETE)
+@@ -1563,7 +1563,7 @@
+             {
+                 for (Group::member_citerator itr = members.begin(); itr != members.end(); itr++)
+                 {
+-                    GroupMember = Unit::GetPlayer(*me, itr->guid);
++                    GroupMember = Unit::GetPlayer(itr->guid);
+ 
+                     if (GroupMember && GroupMember->GetQuestStatus(QUEST_BATTLE_OF_THE_CRIMSON_WATCH) == QUEST_STATUS_INCOMPLETE)
+                     {
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/shattrath/shattrath_city.cpp
+--- a/src/bindings/scripts/scripts/zone/shattrath/shattrath_city.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/shattrath/shattrath_city.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -464,7 +464,7 @@
+ 
+     uint32 NextStep(uint32 Step)
+     {
+-        Player* player = Unit::GetPlayer(*me, PlayerGUID);
++        Player* player = Unit::GetPlayer(PlayerGUID);
+ 
+         switch(Step)
+         {
+@@ -498,7 +498,7 @@
+ 
+         if (Attack)
+         {
+-            Player* player = Unit::GetPlayer(*me, PlayerGUID);
++            Player* player = Unit::GetPlayer(PlayerGUID);
+             me->setFaction(14);
+             me->RemoveFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_NON_ATTACKABLE);
+             if (player)
+@@ -550,7 +550,7 @@
+             me->DeleteThreatList();
+             me->CombatStop();
+             me->GetMotionMaster()->MoveTargetedHome();
+-            Player* player = Unit::GetPlayer(*me, PlayerGUID);
++            Player* player = Unit::GetPlayer(PlayerGUID);
+             if (player)
+                 player->GroupEventHappens(QUEST_WBI, me);
+         }
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/silverpine_forest/silverpine_forest.cpp
+--- a/src/bindings/scripts/scripts/zone/silverpine_forest/silverpine_forest.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/silverpine_forest/silverpine_forest.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -278,7 +278,7 @@
+             Unit* pTarget = NULL;
+             if (PlayerGUID)
+             {
+-                pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++                pPlayer = Unit::GetPlayer(PlayerGUID);
+                 switch(rand()%2)
+                 {
+                     case 0: pTarget = me; break;
+@@ -297,7 +297,7 @@
+     {
+         if (PlayerGUID)
+         {
+-            Player* pPlayer = Unit::GetPlayer(*me, PlayerGUID);
++            Player* pPlayer = Unit::GetPlayer(PlayerGUID);
+             if (pPlayer && pPlayer->GetQuestStatus(QUEST_PYREWOOD_AMBUSH) == QUEST_STATUS_INCOMPLETE)
+                 pPlayer->FailQuest(QUEST_PYREWOOD_AMBUSH);
+         }
+@@ -353,7 +353,7 @@
+             case 5: //end
+                 if (PlayerGUID)
+                 {
+-                    if (Player *pPlayer = Unit::GetPlayer(*me, PlayerGUID))
++                    if (Player *pPlayer = Unit::GetPlayer(PlayerGUID))
+                     {
+                         me->Say(NPCSAY_END, LANG_UNIVERSAL, 0); //no blizzlike
+                         pPlayer->GroupEventHappens(QUEST_PYREWOOD_AMBUSH, me);
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/sunwell_plateau/boss_muru.cpp
+--- a/src/bindings/scripts/scripts/zone/sunwell_plateau/boss_muru.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/sunwell_plateau/boss_muru.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -381,7 +381,7 @@
+     void JustSummoned(Creature* summoned)
+     {
+         if (pInstance)
+-            if (Player* Target = Unit::GetPlayer(*me, pInstance->GetData64(DATA_PLAYER_GUID)))
++            if (Player* Target = Unit::GetPlayer(pInstance->GetData64(DATA_PLAYER_GUID)))
+                 summoned->AI()->AttackStart(Target);
+ 
+         Summons.Summon(summoned);
+diff -r c57583125f6b -r ede45367712a src/bindings/scripts/scripts/zone/zulaman/zulaman.cpp
+--- a/src/bindings/scripts/scripts/zone/zulaman/zulaman.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/bindings/scripts/scripts/zone/zulaman/zulaman.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -114,7 +114,7 @@
+     void EnterCombat(Unit *who) {}
+     void JustDied(Unit *)
+     {
+-        Player* player = Unit::GetPlayer(*me, PlayerGUID);
++        Player* player = Unit::GetPlayer(PlayerGUID);
+         if (player) player->SendLoot(me->GetGUID(), LOOT_CORPSE);
+     }
+     void UpdateAI(const uint32 diff)
+diff -r c57583125f6b -r ede45367712a src/game/Map.cpp
+--- a/src/game/Map.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/Map.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -2775,18 +2775,43 @@
+ Creature*
+ Map::GetCreature(uint64 guid)
+ {
+-    return ObjectAccessor::GetObjectInMap(guid, this, (Creature*)NULL);
++    Creature * ret = ObjectAccessor::GetObjectInWorld(guid, (Creature*)NULL);
++
++    if (!ret)
++        return NULL;
++
++    if (ret->GetMapId() != GetId())
++        return NULL;
++
++    if (ret->GetInstanceId() != GetInstanceId())
++        return NULL;
++
++    return ret;
+ }
+ 
+ GameObject*
+ Map::GetGameObject(uint64 guid)
+ {
+-    return ObjectAccessor::GetObjectInMap(guid, this, (GameObject*)NULL);
++    GameObject * ret = ObjectAccessor::GetObjectInWorld(guid, (GameObject*)NULL);
++    if (!ret)
++        return NULL;
++    if (ret->GetMapId() != GetId())
++        return NULL;
++    if (ret->GetInstanceId() != GetInstanceId())
++        return NULL;
++    return ret;
+ }
+ 
+ DynamicObject*
+ Map::GetDynamicObject(uint64 guid)
+ {
+-    return ObjectAccessor::GetObjectInMap(guid, this, (DynamicObject*)NULL);
++    DynamicObject * ret = ObjectAccessor::GetObjectInWorld(guid, (DynamicObject*)NULL);
++    if (!ret)
++        return NULL;
++    if (ret->GetMapId() != GetId())
++        return NULL;
++    if (ret->GetInstanceId() != GetInstanceId())
++        return NULL;
++    return ret;
+ }
+ 
+diff -r c57583125f6b -r ede45367712a src/game/ObjectAccessor.cpp
+--- a/src/game/ObjectAccessor.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/ObjectAccessor.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -56,100 +56,78 @@
+     }
+ }
+ 
+-Object* ObjectAccessor::GetObjectByTypeMask(WorldObject const& p, uint64 guid, uint32 typemask)
++Creature* ObjectAccessor::GetCreatureOrPet(WorldObject const& u, uint64 guid)
+ {
+-    switch (GUID_HIPART(guid))
+-    {
+-        case HIGHGUID_ITEM:
+-            if (typemask & TYPEMASK_ITEM && p.GetTypeId() == TYPEID_PLAYER)
+-                return ((Player const&)p).GetItemByGuid(guid);
+-            break;
+-        case HIGHGUID_PLAYER:
+-            if (typemask & TYPEMASK_PLAYER)
+-                return GetPlayer(p, guid);
+-            break;
+-        case HIGHGUID_GAMEOBJECT:
+-            if (typemask & TYPEMASK_GAMEOBJECT)
+-                return GetGameObject(p, guid);
+-            break;
+-        case HIGHGUID_UNIT:
+-            if (typemask & TYPEMASK_UNIT)
+-                return GetCreature(p, guid);
+-            break;
+-        case HIGHGUID_PET:
+-            if (typemask & TYPEMASK_UNIT)
+-                return GetPet(p, guid);
+-            break;
+-        case HIGHGUID_DYNAMICOBJECT:
+-            if (typemask & TYPEMASK_DYNAMICOBJECT)
+-                return GetDynamicObject(p, guid);
+-            break;
+-        case HIGHGUID_TRANSPORT:
+-        case HIGHGUID_CORPSE:
+-        case HIGHGUID_MO_TRANSPORT:
+-            break;
+-    }
++    if (IS_PLAYER_GUID(guid))
++        return NULL;
+ 
+-    return NULL;
++    if (IS_PET_GUID(guid))
++        return GetPet(guid);
++
++    return u.GetMap()->GetCreature(guid);
++}
++
++Unit* ObjectAccessor::GetUnit(WorldObject const &u, uint64 guid)
++{
++    if (!guid)
++        return NULL;
++
++    if (IS_PLAYER_GUID(guid))
++        return FindPlayer(guid);
++
++    return GetCreatureOrPet(u, guid);
+ }
+ 
+ Corpse* ObjectAccessor::GetCorpse(WorldObject const& u, uint64 guid)
+ {
+-    return GetObjectInMap(guid, u.GetMap(), (Corpse*)NULL);
++    Corpse * ret = GetObjectInWorld(guid, (Corpse*)NULL);
++    if (ret && ret->GetMapId() != u.GetMapId()) ret = NULL;
++    return ret;
+ }
+ 
+-GameObject* ObjectAccessor::GetGameObject(WorldObject const& u, uint64 guid)
++Object* ObjectAccessor::GetObjectByTypeMask(Player const& p, uint64 guid, uint32 typemask)
+ {
+-    return GetObjectInMap(guid, u.GetMap(), (GameObject*)NULL);
+-}
++    Object *obj = NULL;
+ 
+-DynamicObject* ObjectAccessor::GetDynamicObject(WorldObject const& u, uint64 guid)
+-{
+-    return GetObjectInMap(guid, u.GetMap(), (DynamicObject*)NULL);
+-}
++    if (typemask & TYPEMASK_PLAYER)
++    {
++        obj = FindPlayer(guid);
++        if (obj) return obj;
++    }
+ 
+-Unit* ObjectAccessor::GetUnit(WorldObject const& u, uint64 guid)
+-{
+-    return GetObjectInMap(guid, u.GetMap(), (Unit*)NULL);
+-}
++    if (typemask & TYPEMASK_UNIT)
++    {
++        obj = GetCreatureOrPet(p,guid);
++        if (obj) return obj;
++    }
+ 
+-Creature* ObjectAccessor::GetCreature(WorldObject const& u, uint64 guid)
+-{
+-    return GetObjectInMap(guid, u.GetMap(), (Creature*)NULL);
+-}
++    if (typemask & TYPEMASK_GAMEOBJECT)
++    {
++        obj = p.GetMap()->GetGameObject(guid);
++        if (obj) return obj;
++    }
+ 
+-Pet* ObjectAccessor::GetPet(WorldObject const& u, uint64 guid)
+-{
+-    return GetObjectInMap(guid, u.GetMap(), (Pet*)NULL);
+-}
++    if (typemask & TYPEMASK_DYNAMICOBJECT)
++    {
++        obj = p.GetMap()->GetDynamicObject(guid);
++        if (obj) return obj;
++    }
+ 
+-Player* ObjectAccessor::GetPlayer(WorldObject const& u, uint64 guid)
+-{
+-    return GetObjectInMap(guid, u.GetMap(), (Player*)NULL);
+-}
+-
+-Creature* ObjectAccessor::GetCreatureOrPet(WorldObject const& u, uint64 guid)
+-{
+-    if (IS_PET_GUID(guid))
+-        return GetPet(u, guid);
+-
+-    if (IS_CREATURE_GUID(guid))
+-        return GetCreature(u, guid);
++    if (typemask & TYPEMASK_ITEM)
++    {
++        obj = p.GetItemByGuid(guid);
++        if (obj) return obj;
++    }
+ 
+     return NULL;
+ }
+ 
+-Pet* ObjectAccessor::FindPet(uint64 guid)
+-{
+-    return GetObjectInWorld(guid, (Pet*)NULL);
+-}
+-
+ Player* ObjectAccessor::FindPlayer(uint64 guid)
+ {
+     return GetObjectInWorld(guid, (Player*)NULL);
+ }
+ 
+-Player* ObjectAccessor::FindPlayerByName(const char* name)
++Player* ObjectAccessor::FindPlayerByName(const char *name)
+ {
+     //TODO: Player Guard
+     Guard guard(*HashMapHolder<Player>::GetLock());
+@@ -170,6 +148,11 @@
+         itr->second->SaveToDB();
+ }
+ 
++Pet* ObjectAccessor::GetPet(uint64 guid)
++{
++    return GetObjectInWorld(guid, (Pet*)NULL);
++}
++
+ Corpse* ObjectAccessor::GetCorpseForPlayerGUID(uint64 guid)
+ {
+     Guard guard(i_corpseGuard);
+diff -r c57583125f6b -r ede45367712a src/game/ObjectAccessor.h
+--- a/src/game/ObjectAccessor.h	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/ObjectAccessor.h	Sun Sep 05 02:43:02 2010 +0200
+@@ -105,34 +105,18 @@
+             return HashMapHolder<T>::Find(guid);
+         }
+ 
+-        // Player may be not in world while in ObjectAccessor
+-        static Player* GetObjectInWorld(uint64 guid, Player* /*typeSpecifier*/)
+-        {
+-            Player * player = HashMapHolder<Player>::Find(guid);
+-            if (player && player->IsInWorld())
+-                return player;
+-            return NULL;
+-        }
+-
+         static Unit* GetObjectInWorld(uint64 guid, Unit* /*typeSpecifier*/)
+         {
++            if (!guid)
++                return NULL;
++
+             if (IS_PLAYER_GUID(guid))
+-                return (Unit*)GetObjectInWorld(guid, (Player*)NULL);
++                return (Unit*)HashMapHolder<Player>::Find(guid);
+ 
+-            if (IS_PET_GUID(guid))
+-                return (Unit*)GetObjectInWorld(guid, (Pet*)NULL);
++            if (Unit* u = (Unit*)HashMapHolder<Pet>::Find(guid))
++                return u;
+ 
+-            return (Unit*)GetObjectInWorld(guid, (Creature*)NULL);
+-        }
+-
+-        // returns object if is in map
+-        template<class T> static T* GetObjectInMap(uint64 guid, Map * map, T* /*typeSpecifier*/)
+-        {
+-            assert(map);
+-            if (T * obj = GetObjectInWorld(guid, (T*)NULL))
+-                if (obj->GetMap() == map)
+-                    return obj;
+-            return NULL;
++            return (Unit*)HashMapHolder<Creature>::Find(guid);
+         }
+ 
+         template<class T> static T* GetObjectInWorld(uint32 mapid, float x, float y, uint64 guid, T* /*fake*/)
+@@ -165,19 +149,16 @@
+         }
+ 
+         // these functions return objects only if in map of specified object
+-        static Object* GetObjectByTypeMask(WorldObject const&, uint64, uint32 typemask);
++        static Object* GetObjectByTypeMask(Player const &, uint64, uint32 typemask);
++        static Creature* GetCreatureOrPet(WorldObject const&, uint64);
++        static Unit* GetUnit(WorldObject const &, uint64);
++        static Pet* GetPet(Unit const&, uint64 guid) { return GetPet(guid); }
++        static Player* GetPlayer(Unit const&, uint64 guid) { return FindPlayer(guid); }
+         static Corpse* GetCorpse(WorldObject const& u, uint64 guid);
+-        static GameObject* GetGameObject(WorldObject const& u, uint64 guid);
+-        static DynamicObject* GetDynamicObject(WorldObject const& u, uint64 guid);
+-        static Unit* GetUnit(WorldObject const&, uint64 guid);
+-        static Creature* GetCreature(WorldObject const& u, uint64 guid);
+-        static Pet* GetPet(WorldObject const&, uint64 guid);
+-        static Player* GetPlayer(WorldObject const&, uint64 guid);
+-        static Creature* GetCreatureOrPet(WorldObject const&, uint64);
+ 
+         // these functions return objects if found in whole world
+         // ACCESS LIKE THAT IS NOT THREAD SAFE
+-        static Pet* FindPet(uint64);
++        static Pet* GetPet(uint64);
+         static Player* FindPlayer(uint64);
+         Player* FindPlayerByName(const char* name);
+ 
+diff -r c57583125f6b -r ede45367712a src/game/PetHandler.cpp
+--- a/src/game/PetHandler.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/PetHandler.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -449,7 +449,7 @@
+     recv_data >> name;
+     recv_data >> isdeclined;
+ 
+-    Pet* pet = ObjectAccessor::FindPet(petguid);
++    Pet* pet = ObjectAccessor::GetPet(petguid);
+                                                             // check it!
+     if (!pet || !pet->isPet() || ((Pet*)pet)->getPetType() != HUNTER_PET ||
+         pet->GetByteValue(UNIT_FIELD_BYTES_2, 2) != UNIT_RENAME_ALLOWED ||
+diff -r c57583125f6b -r ede45367712a src/game/Player.cpp
+--- a/src/game/Player.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/Player.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -16875,7 +16875,7 @@
+ {
+     if (!m_miniPet)
+         return NULL;
+-    return ObjectAccessor::GetPet(*this, m_miniPet);
++    return ObjectAccessor::GetPet(m_miniPet);
+ }
+ 
+ void Player::RemoveGuardians()
+@@ -16883,7 +16883,7 @@
+     while (!m_guardianPets.empty())
+     {
+         uint64 guid = *m_guardianPets.begin();
+-        if (Pet* pet = ObjectAccessor::GetPet(*this, guid))
++        if (Pet* pet = ObjectAccessor::GetPet(guid))
+             pet->Remove(PET_SAVE_AS_DELETED);
+ 
+         m_guardianPets.erase(guid);
+diff -r c57583125f6b -r ede45367712a src/game/Spell.cpp
+--- a/src/game/Spell.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/Spell.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -271,7 +271,8 @@
+     m_referencedFromCurrentSpell = false;
+     m_executedCurrently = false;
+     m_delayStart = 0;
+-    m_delayAtDamageCount = 0;
++    m_delayAtDamageCount = 0;
++    m_destroyed = false;
+ 
+     m_applyMultiplierMask = 0;
+ 
+@@ -377,6 +378,8 @@
+ 
+ Spell::~Spell()
+ {
++    m_destroyed = true;
++
+     delete m_spellValue;
+ }
+ 
+@@ -565,6 +568,9 @@
+             uint8 mask = (1<<i);
+             for (std::list<TargetInfo>::iterator ihit = m_UniqueTargetInfo.begin(); ihit != m_UniqueTargetInfo.end(); ++ihit)
+             {
++                if (ihit->deleted)
++                    continue;
++
+                 if (ihit->effectMask & mask)
+                 {
+                     m_needAliveTargetMask |= mask;
+@@ -684,8 +690,14 @@
+ 
+ void Spell::CleanupTargetList()
+ {
+-    m_UniqueTargetInfo.clear();
+-    m_UniqueGOTargetInfo.clear();
++    // m_UniqueTargetInfo.clear();
++    // m_UniqueGOTargetInfo.clear();
++
++    for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin(); ihit != m_UniqueTargetInfo.end(); ++ihit)
++        ihit->deleted = true;
++
++    for (std::list<GOTargetInfo>::iterator ihit= m_UniqueGOTargetInfo.begin(); ihit != m_UniqueGOTargetInfo.end(); ++ihit)
++        ihit->deleted = true;
+ 
+     m_UniqueItemInfo.clear();
+     m_countOfHit = 0;
+@@ -706,6 +718,9 @@
+     // Lookup target in already in list
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         if (targetGUID == ihit->targetGUID)                 // Found in list
+         {
+             ihit->effectMask |= 1<<effIndex;                // Add only effect mask
+@@ -721,7 +736,8 @@
+     target.effectMask = 1<<effIndex;                        // Store index of effect
+     target.processed  = false;                              // Effects not apply on target
+     target.damage     = 0;
+-    target.crit       = false;
++    target.crit       = false;
++    target.deleted    = false;
+ 
+     // Calculate hit result
+     if (m_originalCaster)
+@@ -789,6 +805,9 @@
+     // Lookup target in already in list
+     for (std::list<GOTargetInfo>::iterator ihit = m_UniqueGOTargetInfo.begin(); ihit != m_UniqueGOTargetInfo.end(); ++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         if (targetGUID == ihit->targetGUID)                 // Found in list
+         {
+             ihit->effectMask |= (1 << effIndex);            // Add only effect mask
+@@ -802,6 +821,7 @@
+     target.targetGUID = targetGUID;
+     target.effectMask = (1 << effIndex);
+     target.processed  = false;                              // Effects not apply on target
++    target.deleted    = false;
+ 
+     // Spell have speed - need calculate incoming time
+     if (m_spellInfo->speed > 0.0f)
+@@ -855,7 +875,7 @@
+ 
+ void Spell::DoAllEffectOnTarget(TargetInfo *target)
+ {
+-    if (!target || target->processed)                       // Check target
++    if (!target || target == (TargetInfo*)0x10 || target->processed || m_spellInfo->Id > MAX_SPELL_ID)    // Check target
+         return;
+ 
+     target->processed = true;                               // Target checked in apply effects procedure
+@@ -1178,7 +1198,7 @@
+ 
+ void Spell::DoAllEffectOnTarget(GOTargetInfo *target)
+ {
+-    if (!target || target->processed)                       // Check target
++    if (!target || target == (GOTargetInfo*)0x10 || target->processed || m_spellInfo->Id > MAX_SPELL_ID)    // Check target
+         return;
+ 
+     target->processed = true;                               // Target checked in apply effects procedure
+@@ -1222,6 +1242,9 @@
+ 
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         if (ihit->missCondition == SPELL_MISS_NONE && (needAliveTargetMask & ihit->effectMask))
+         {
+             Unit *unit = m_caster->GetGUID() == ihit->targetGUID ? m_caster : ObjectAccessor::GetUnit(*m_caster, ihit->targetGUID);
+@@ -2126,6 +2149,9 @@
+         {
+             for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+             {
++                if(ihit->deleted)
++                    continue;
++
+                 if (ihit->missCondition == SPELL_MISS_NONE)
+                 {
+                     Unit* unit = m_caster->GetGUID() == (*ihit).targetGUID ? m_caster : ObjectAccessor::GetUnit(*m_caster, ihit->targetGUID);
+@@ -2159,6 +2185,9 @@
+ 
+ void Spell::cast(bool skipCheck)
+ {
++    if (m_spellInfo->Id > MAX_SPELL_ID)
++       return;
++
+     // update pointers base at GUIDs to prevent access to non-existed already object
+     UpdatePointers();
+ 
+@@ -2295,6 +2324,9 @@
+ 
+ void Spell::handle_immediate()
+ {
++    if (m_spellInfo->Id > MAX_SPELL_ID)
++        return;
++
+     // start channeling if applicable
+     if (IsChanneledSpell(m_spellInfo))
+     {
+@@ -2316,10 +2348,26 @@
+     _handle_immediate_phase();
+ 
+     for (std::list<TargetInfo>::iterator ihit = m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
++    {
++        if (m_destroyed || ihit == m_UniqueTargetInfo.end() || m_UniqueTargetInfo.size() == 0)
++            break;
++
++        if (ihit->deleted)
++            continue;
++
+         DoAllEffectOnTarget(&(*ihit));
++    }
+ 
+     for (std::list<GOTargetInfo>::iterator ihit = m_UniqueGOTargetInfo.begin();ihit != m_UniqueGOTargetInfo.end();++ihit)
++    {
++        if (m_destroyed || ihit == m_UniqueGOTargetInfo.end() || m_UniqueGOTargetInfo.size() == 0)
++            break;
++
++        if (ihit->deleted)
++            continue;
++
+         DoAllEffectOnTarget(&(*ihit));
++    }
+ 
+     // spell is finished, perform some last features of the spell here
+     _handle_finish_phase();
+@@ -2347,6 +2395,9 @@
+     // now recheck units targeting correctness (need before any effects apply to prevent adding immunity at first effect not allow apply second spell effect and similar cases)
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin(); ihit != m_UniqueTargetInfo.end();++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         if (ihit->processed == false)
+         {
+             if (single_missile || ihit->timeDelay <= t_offset)
+@@ -2359,6 +2410,9 @@
+     // now recheck gameobject targeting correctness
+     for (std::list<GOTargetInfo>::iterator ighit= m_UniqueGOTargetInfo.begin(); ighit != m_UniqueGOTargetInfo.end();++ighit)
+     {
++        if (ighit->deleted)
++            continue;
++
+         if (!ighit->processed)
+         {
+             if (single_missile || ighit->timeDelay <= t_offset)
+@@ -2613,6 +2667,9 @@
+                 {
+                     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+                     {
++                        if (ihit->deleted)
++                            continue;
++
+                         TargetInfo* target = &*ihit;
+ 
+                         if (!IS_CREATURE_GUID(target->targetGUID))
+@@ -2627,6 +2684,9 @@
+ 
+                     for (std::list<GOTargetInfo>::iterator ihit= m_UniqueGOTargetInfo.begin();ihit != m_UniqueGOTargetInfo.end();++ihit)
+                     {
++                        if (ihit->deleted)
++                            continue;
++
+                         GOTargetInfo* target = &*ihit;
+ 
+                         GameObject* go = m_caster->GetMap()->GetGameObject(target->targetGUID);
+@@ -2889,15 +2949,28 @@
+ {
+     *data << (uint8)m_countOfHit;
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
++    {
++        if (ihit->deleted)
++            continue;
++
+         if ((*ihit).missCondition == SPELL_MISS_NONE)       // Add only hits
+             *data << uint64(ihit->targetGUID);
++    }
+ 
+     for (std::list<GOTargetInfo>::iterator ighit= m_UniqueGOTargetInfo.begin();ighit != m_UniqueGOTargetInfo.end();++ighit)
++    {
++        if (ighit->deleted)
++            continue;
++
+         *data << uint64(ighit->targetGUID);                 // Always hits
++    }
+ 
+     *data << (uint8)m_countOfMiss;
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         if (ihit->missCondition != SPELL_MISS_NONE)        // Add only miss
+         {
+             *data << uint64(ihit->targetGUID);
+@@ -3062,6 +3135,9 @@
+     {
+         for (std::list<TargetInfo>::iterator itr= m_UniqueTargetInfo.begin();itr != m_UniqueTargetInfo.end();++itr)
+         {
++            if (itr->deleted)
++                continue;
++
+             if ((itr->effectMask & (1<<0)) && itr->reflectResult == SPELL_MISS_NONE && itr->targetGUID != m_caster->GetGUID())
+             {
+                 target = ObjectAccessor::GetUnit(*m_caster, itr->targetGUID);
+@@ -3073,6 +3149,9 @@
+     {
+         for (std::list<GOTargetInfo>::iterator itr= m_UniqueGOTargetInfo.begin();itr != m_UniqueGOTargetInfo.end();++itr)
+         {
++            if (itr->deleted)
++                continue;
++
+             if (itr->effectMask & (1<<0))
+             {
+                 target = m_caster->GetMap()->GetGameObject(itr->targetGUID);
+@@ -3187,12 +3266,17 @@
+         if (m_spellInfo->powerType == POWER_RAGE || m_spellInfo->powerType == POWER_ENERGY)
+             if (uint64 targetGUID = m_targets.getUnitTargetGUID())
+                 for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin(); ihit != m_UniqueTargetInfo.end(); ++ihit)
++                {
++                    if (ihit->deleted)
++                        continue;
++
+                     if (ihit->targetGUID == targetGUID)
+                     {
+                         if (ihit->missCondition != SPELL_MISS_NONE && ihit->missCondition != SPELL_MISS_MISS/* && ihit->targetGUID != m_caster->GetGUID()*/)
+                             hit = false;
+                         break;
+                     }
++                }
+         if (hit && NeedsComboPoints(m_spellInfo))
+             m_caster->ToPlayer()->ClearComboPoints();
+     }
+@@ -4407,8 +4491,13 @@
+         FillTargetMap();
+         //check if among target units, our WANTED target is as well (->only self cast spells return false)
+         for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
++        {
++            if (ihit->deleted)
++                continue;
++
+             if (ihit->targetGUID == targetguid)
+                 return true;
++        }
+     }
+     return false;                                           //target invalid
+ }
+@@ -4934,6 +5023,9 @@
+ 
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         if ((*ihit).missCondition == SPELL_MISS_NONE)
+         {
+             Unit* unit = m_caster->GetGUID() == ihit->targetGUID ? m_caster : ObjectAccessor::GetUnit(*m_caster, ihit->targetGUID);
+@@ -5115,6 +5207,9 @@
+                     uint64 targetGUID = target->GetGUID();
+                     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+                     {
++                        if (ihit->deleted)
++                            continue;
++
+                         if (targetGUID == ihit->targetGUID)                 // Found in list
+                         {
+                             (*ihit).damage = target->GetHealth();
+@@ -5164,12 +5259,22 @@
+ bool Spell::HaveTargetsForEffect(uint8 effect) const
+ {
+     for (std::list<TargetInfo>::const_iterator itr= m_UniqueTargetInfo.begin();itr != m_UniqueTargetInfo.end();++itr)
++    {
++        if (itr->deleted)
++            continue;
++
+         if (itr->effectMask & (1<<effect))
+             return true;
++    }
+ 
+     for (std::list<GOTargetInfo>::const_iterator itr= m_UniqueGOTargetInfo.begin();itr != m_UniqueGOTargetInfo.end();++itr)
++    {
++        if (itr->deleted)
++            continue;
++
+         if (itr->effectMask & (1<<effect))
+             return true;
++    }
+ 
+     for (std::list<ItemTargetInfo>::const_iterator itr= m_UniqueItemInfo.begin();itr != m_UniqueItemInfo.end();++itr)
+         if (itr->effectMask & (1<<effect))
+@@ -5343,6 +5448,9 @@
+ 
+     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin(); ihit != m_UniqueTargetInfo.end(); ++ihit)
+     {
++        if (ihit->deleted)
++            continue;
++
+         TargetInfo &target = *ihit;
+ 
+         uint32 mask = target.effectMask;
+diff -r c57583125f6b -r ede45367712a src/game/Spell.h
+--- a/src/game/Spell.h	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/Spell.h	Sun Sep 05 02:43:02 2010 +0200
+@@ -21,7 +21,9 @@
+ #ifndef __SPELL_H
+ #define __SPELL_H
+ 
+-#include "GridDefines.h"
++#include "GridDefines.h"
++
++#define MAX_SPELL_ID    60000
+ 
+ class Unit;
+ class Player;
+@@ -549,19 +551,22 @@
+             SpellMissInfo missCondition:8;
+             SpellMissInfo reflectResult:8;
+             uint8  effectMask:8;
+-            bool   processed:1;
++            bool   processed:1;
++            bool   deleted:1;
+             int32  damage;
+             bool   crit;
+         };
+         std::list<TargetInfo> m_UniqueTargetInfo;
+         uint8 m_needAliveTargetMask;                        // Mask req. alive targets
++        bool m_destroyed;
+ 
+         struct GOTargetInfo
+         {
+             uint64 targetGUID;
+             uint64 timeDelay;
+             uint8  effectMask:8;
+-            bool   processed:1;
++            bool   processed:1;
++            bool   deleted:1;
+         };
+         std::list<GOTargetInfo> m_UniqueGOTargetInfo;
+ 
+diff -r c57583125f6b -r ede45367712a src/game/SpellEffects.cpp
+--- a/src/game/SpellEffects.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/SpellEffects.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -323,8 +323,13 @@
+                 {
+                     uint32 count = 0;
+                     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
++                    {
++                        if (ihit->deleted)
++                            continue;
++
+                         if (ihit->effectMask & (1<<effect_idx))
+                             ++count;
++                    }
+ 
+                     damage /= count;                    // divide to all targets
+                 }
+@@ -648,8 +653,13 @@
+                 {
+                     uint32 count = 0;
+                     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
++                    {
++                        if (ihit->deleted)
++                            continue;
++
+                         if (ihit->effectMask & (1<<i))
+                             ++count;
++                    }
+ 
+                     damage = 12000; // maybe wrong value
+                     damage /= count;
+@@ -659,6 +669,9 @@
+                      // now deal the damage
+                     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
+                     {
++                        if (ihit->deleted)
++                            continue;
++
+                         if (ihit->effectMask & (1<<i))
+                         {
+                             Unit* casttarget = Unit::GetUnit((*unitTarget), ihit->targetGUID);
+@@ -1658,7 +1671,12 @@
+                     // Righteous Defense (step 2) (in old version 31980 dummy effect)
+                     // Clear targets for eff 1
+                     for (std::list<TargetInfo>::iterator ihit= m_UniqueTargetInfo.begin();ihit != m_UniqueTargetInfo.end();++ihit)
++                    {
++                        if (ihit->deleted)
++                            continue;
++
+                         ihit->effectMask &= ~(1<<1);
++                    }
+ 
+                     // not empty (checked)
+                     Unit::AttackerSet const& attackers = unitTarget->getAttackers();
+diff -r c57583125f6b -r ede45367712a src/game/Unit.cpp
+--- a/src/game/Unit.cpp	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/Unit.cpp	Sun Sep 05 02:43:02 2010 +0200
+@@ -6780,9 +6780,10 @@
+ 
+ Unit *Unit::GetOwner() const
+ {
+-    if (uint64 ownerid = GetOwnerGUID())
+-        return ObjectAccessor::GetUnit(*this, ownerid);
+-    return NULL;
++    uint64 ownerid = GetOwnerGUID();
++    if (!ownerid)
++        return NULL;
++    return ObjectAccessor::GetUnit(*this, ownerid);
+ }
+ 
+ Unit *Unit::GetCharmer() const
+@@ -6805,7 +6806,7 @@
+ {
+     if (uint64 pet_guid = GetPetGUID())
+     {
+-        if (Pet* pet = ObjectAccessor::GetPet(*this, pet_guid))
++        if (Pet* pet = ObjectAccessor::GetPet(pet_guid))
+             return pet;
+ 
+         sLog.outError("Unit::GetPet: Pet %u not exist.",GUID_LOPART(pet_guid));
+@@ -9191,9 +9192,9 @@
+     return ObjectAccessor::GetUnit(object,guid);
+ }
+ 
+-Player* Unit::GetPlayer(WorldObject& object, uint64 guid)
+-{
+-    return ObjectAccessor::GetPlayer(object,guid);
++Player* Unit::GetPlayer(uint64 guid)
++{
++    return ObjectAccessor::FindPlayer(guid);
+ }
+ 
+ Creature* Unit::GetCreature(WorldObject& object, uint64 guid)
+diff -r c57583125f6b -r ede45367712a src/game/Unit.h
+--- a/src/game/Unit.h	Sun Sep 12 00:40:03 2010 +0200
++++ b/src/game/Unit.h	Sun Sep 05 02:43:02 2010 +0200
+@@ -1429,7 +1429,7 @@
+         void addFollower(FollowerReference* pRef) { m_FollowingRefManager.insertFirst(pRef); }
+         void removeFollower(FollowerReference* /*pRef*/) { /* nothing to do yet */ }
+         static Unit* GetUnit(WorldObject& object, uint64 guid);
+-        static Player* GetPlayer(WorldObject& object, uint64 guid);
++        static Player* GetPlayer(uint64 guid);
+         static Creature* GetCreature(WorldObject& object, uint64 guid);
+ 
+         MotionMaster* GetMotionMaster() { return &i_motionMaster; }

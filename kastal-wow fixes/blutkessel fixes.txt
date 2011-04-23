@@ -1,0 +1,15 @@
+UPDATE `gameobject_template` SET  `flags` =  '4' WHERE  `gameobject_template`.`entry` =181811;
+UPDATE `gameobject_template` SET  `flags` =  '4' WHERE  `gameobject_template`.`entry` =181812;
+UPDATE `gameobject_template` SET  `flags` =  '4' WHERE  `gameobject_template`.`entry` =181822;
+UPDATE `gameobject_template` SET  `flags` =  '4' WHERE  `gameobject_template`.`entry` =181813;
+
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `faction_A` =  '35',
+`faction_H` =  '35' WHERE  `creature_template`.`entry` =19224;
+
+-- bota
+UPDATE `creature_template` SET  `faction_A` =  '14',
+`faction_H` =  '14' WHERE  `creature_template`.`entry` =19919;
+
+UPDATE `creature_template` SET  `faction_A` =  '14',
+`faction_H` =  '14' WHERE  `creature_template`.`entry` =21580;

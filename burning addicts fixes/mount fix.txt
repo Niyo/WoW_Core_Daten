@@ -1,0 +1,35 @@
+diff -r 4ea02cf78369 src/game/Player.cpp
+--- a/src/game/Player.cpp	Wed Sep 01 23:45:06 2010 +0200
++++ b/src/game/Player.cpp	Fri Sep 03 21:06:28 2010 +0200
+@@ -5455,6 +5455,13 @@
+     if (sWorld.getConfig(CONFIG_VMAP_INDOOR_CHECK) && !isOutdoor)
+         RemoveAurasWithAttribute(SPELL_ATTR_OUTDOORS_ONLY);
+ 
++    uint32 area_id = GetAreaId();
++    if (area_id == 3613 || area_id == 3684)
++    {
++        RemoveSpellsCausingAura(SPELL_AURA_MOD_FLIGHT_SPEED_MOUNTED);
++        RemoveSpellsCausingAura(SPELL_AURA_FLY);
++    }
++
+     if (areaFlag==0xffff)
+         return;
+     int offset = areaFlag / 32;
+	 
+------------------------------------------------------------------------------
+diff -r 4ea02cf78369 src/game/Spell.cpp
+--- a/src/game/Spell.cpp	Wed Sep 01 23:45:06 2010 +0200
++++ b/src/game/Spell.cpp	Fri Sep 03 21:06:45 2010 +0200
+@@ -4197,6 +4197,12 @@
+                     if (!m_caster->ToPlayer()->isGameMaster() &&
+                         GetVirtualMapForMapAndZone(m_caster->GetMapId(),m_caster->GetZoneId()) != 530)
+                         return SPELL_FAILED_NOT_HERE;
++
++                    if (m_caster->GetAreaId() == 3613)
++                        return SPELL_FAILED_NOT_HERE;
++
++                    if (m_caster->GetAreaId() == 3684)
++                        return SPELL_FAILED_NOT_HERE;
+                 }
+                 break;
+             }

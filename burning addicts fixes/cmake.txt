@@ -1,0 +1,1 @@
+cmake -DPREFIX=/home/akitos/server/oregon -DACE_LIBRARY=/home/akitos/etc/.sys/lib/libACE.so -DACE_INCLUDE_DIR=/home/akitos/etc/.sys/include/ -DOPENSSL_LIBRARIES=/home/akitos/etc/.sys/lib/libssl.so -DOPENSSL_INCLUDE_DIR=/home/akitos/etc/.sys/include/

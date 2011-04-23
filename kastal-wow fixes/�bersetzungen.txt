@@ -1,0 +1,22 @@
+UPDATE  `script_texts` SET  `content_loc3` =  'Die Geister der  Winde besiegeln Euer Schicksal!' WHERE  `script_texts`.`entry` = -1568000;
+UPDATE  `script_texts` SET  `content_loc3` =  'Jetzt sollt ihr brennen!' WHERE  `script_texts`.`entry` = -1568001;
+UPDATE  `script_texts` SET  `content_loc3` =  'Wo ist meine Brut? Was ist mit den Eiern!' WHERE  `script_texts`.`entry` = -1568002;
+UPDATE  `script_texts` SET  `content_loc3` =  'Stärke... und zwar viel davon.' WHERE  `script_texts`.`entry` = -1568003;
+UPDATE  `script_texts` SET  `content_loc3` =  'Alles gleich vorbei, man!' WHERE  `script_texts`.`entry` = -1568005;
+UPDATE  `script_texts` SET  `content_loc3` =  'Zul''jin... hat eine Überraschung.. für Euch.' WHERE  `script_texts`.`entry` = -1568007;
+UPDATE  `script_texts` SET  `content_loc3` =  'Kommt Fremde. Der Geist des Drachenfalken begehrt würdige Seelen.' WHERE  `script_texts`.`entry` = -1568008;
+UPDATE  `script_texts` SET  `content_loc3` =  'Kommt Freunde. Meine Jungen werden sich an euren Körpern laben und Eure Seelen werden mich mit Macht erfüllen!' WHERE  `script_texts`.`entry` = -1568009;
+
+
+UPDATE `script_texts` SET  `content_loc3` =  'Vorwärts Wachen, Zeit zum töten!' WHERE  `script_texts`.`entry` = -1568010;
+UPDATE `script_texts` SET  `content_loc3` =  'Los jetzt Wachen, vor wem fürchtet ihr euch mehr? Vor denen oder vor mir?' WHERE  `script_texts`.`entry` = -1568011;
+UPDATE `script_texts` SET  `content_loc3` =  'Reitet los! Reitet los und bringt mir ein paar Köpfe!' WHERE  `script_texts`.`entry` = -1568012;
+UPDATE `script_texts` SET  `content_loc3` =  'Ich verliere die Gedult, los jetzt! Auf das sie sich wünschen, sie wären niemals geboren!' WHERE  `script_texts`.`entry` = -1568013;
+UPDATE `script_texts` SET  `content_loc3` =  'Ihr sterbt noch schnell genung!' WHERE  `script_texts`.`entry` = -1568016;
+UPDATE `script_texts` SET  `content_loc3` =  'Nah, was sagt ihr jetzt?' WHERE  `script_texts`.`entry` = -1568021;
+UPDATE `script_texts` SET  `content_loc3` =  'Die Amani werden wieder herrschen!' WHERE  `script_texts`.`entry` = -1568022;
+UPDATE `script_texts` SET  `content_loc3` =  'Ich erwarte euch auf der anderen Seite.' WHERE  `script_texts`.`entry` = -1568023;
+UPDATE `script_texts` SET  `content_loc3` =  'Ihr hattet eure Chance, nun ist es zu spät!' WHERE  `script_texts`.`entry` = -1568020;
+UPDATE `script_texts` SET  `content_loc3` =  'Ich bringe Schmerz!' WHERE  `script_texts`.`entry` = -1568017;
+UPDATE `script_texts` SET  `content_loc3` =  'Macht Platz für Nalorakk!' WHERE  `script_texts`.`entry` = -1568019;
+UPDATE `script_texts` SET  `content_loc3` =  'Ihr provoziert die Bestie, jetzt werdet ihr sie kennenlernen!' WHERE  `script_texts`.`entry` = -1568018;

@@ -1,0 +1,16 @@
+DELETE FROM creature_addon WHERE guid NOT IN (SELECT guid FROM creature);
+-- delete wrong aura from creature_addon
+Update creature_addon set auras = NULL WHERE guid = 4699;
+-- set current health correctly
+Update creature set curhealth = 5000000 WHERE guid = 100001;
+-- wotlk hunter wypern stings
+Delete from spell_linked_spell where spell_trigger = -49012;
+Delete from spell_linked_spell where spell_trigger = -49011;
+-- wotlk holy nova spells
+Delete from spell_linked_spell where spell_trigger = 48077;
+Delete from spell_linked_spell where spell_trigger = 48078;
+-- delete senseless entry from creature_formations and insert some of my own
+Delete from creature_formations WHERE leaderGUID = 0;
+INSERT INTO `creature_formations` (`leaderGUID`, `memberGUID`, `dist`, `angle`, `groupAI`) VALUES
+(42645, 54992, 99, 99, 2),
+(42645, 42645, 99, 99, 2);

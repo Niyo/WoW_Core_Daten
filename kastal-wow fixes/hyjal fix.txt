@@ -1,0 +1,8 @@
+UPDATE `creature_template` SET  `faction_A` =  '1720',
+`faction_H` =  '1720' WHERE  `creature_template`.`entry` =17902;
+
+UPDATE `creature_template` SET  `faction_A` =  '1720',
+`faction_H` =  '1720' WHERE  `creature_template`.`entry` =17903;
+
+UPDATE `creature_template` SET  `minhealth` =  '58684',
+`maxhealth` =  '85000' WHERE  `creature_template`.`entry` =17905;

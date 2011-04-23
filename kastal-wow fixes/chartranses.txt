@@ -1,0 +1,4 @@
+Delete from item_instance WHERE owner_guid = NEW_CHAR;
+Delete from character_inventory where guid = NEW_CHAR;
+Update character_inventory set guid = NEW_CHAR where guid = OLD_CHAR;
+Update item_instance set owner_guid = NEW_CHAR where owner_guid = OLD_CHAR;

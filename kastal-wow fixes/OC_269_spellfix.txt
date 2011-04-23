@@ -1,0 +1,338 @@
+# HG changeset patch
+# User stfx
+# Date 1275764367 -7200
+# Node ID c79b607ee8ae0bfdd4b6f4a0830d81f9bccf2b3c
+# Parent  330da3afea040e6bc22466f7d6cf462f6b0b5700
+Tryfix: Gore (pet ability), Bite, Claw, Lightning, Chain Lightning, Sunder Armor, Expose Armor, Flametongue Weapon and Totem proc, Summon of Shadowfiends
+Fix spell dmg coefficient of Cone of Cold, Dragons Breath, Frost Nova, Blast Wave, Corruption, Seal of Command, Eye for an Eye, Lightning Overload, Shadow Word pain, Shadow Word Death, Flametongue and Frostbrand Weapon
+Fix amount of healing of some spells
+Fix Libram of the Lightbringer, Libram of Light, Libram of Divinity and Blessed Book of Nagrand
+
+diff -r 330da3afea04 -r c79b607ee8ae src/game/SpellEffects.cpp
+--- a/src/game/SpellEffects.cpp	Sat Jun 05 11:44:37 2010 +0200
++++ b/src/game/SpellEffects.cpp	Sat Jun 05 20:59:27 2010 +0200
+@@ -313,9 +313,15 @@
+             case SPELLFAMILY_GENERIC:
+             {
+                 //Gore
+-                if (m_spellInfo->SpellIconID == 2269 )
++                if (m_spellInfo->SpellIconID == 2269)
+                 {
+-                  damage+= (uint32)unitTarget->GetMap()->rand32()%2 ? damage : 0;
++                    damage += (uint32)(m_caster->GetTotalAttackPowerValue(BASE_ATTACK)*0.072f);
++                    damage += (uint32)unitTarget->GetMap()->rand32()%2 ? damage : 0;
++                }
++                // Bite, Claw
++			    else if (m_spellInfo->SpellIconID == 146 || m_spellInfo->SpellIconID == 262)
++                {
++                    damage += (uint32)(m_caster->GetTotalAttackPowerValue(BASE_ATTACK)*0.072f);
+                 }
+ 
+                 // Meteor like spells (divided damage to targets)
+@@ -569,22 +575,16 @@
+                   int32 base = m_caster->GetMap()->irand((int32)m_caster->GetWeaponDamageRange(RANGED_ATTACK, MINDAMAGE),(int32)m_caster->GetWeaponDamageRange(RANGED_ATTACK, MAXDAMAGE));
+                     damage += int32(float(base)/m_caster->GetAttackTime(RANGED_ATTACK)*2800 + m_caster->GetTotalAttackPowerValue(RANGED_ATTACK)*0.2f);
+ 
+-                    bool found = false;
+-
+                     // check dazed affect
+                     Unit::AuraList const& decSpeedList = unitTarget->GetAurasByType(SPELL_AURA_MOD_DECREASE_SPEED);
+                     for (Unit::AuraList::const_iterator iter = decSpeedList.begin(); iter != decSpeedList.end(); ++iter)
+                     {
+                         if ((*iter)->GetSpellProto()->SpellIconID==15 && (*iter)->GetSpellProto()->Dispel==0)
+                         {
+-                            found = true;
++                            damage += m_spellInfo->EffectBasePoints[1];
+                             break;
+                         }
+                     }
+-
+-                    //TODO: should this be put on taken but not done?
+-                    if (found)
+-                        damage += m_spellInfo->EffectBasePoints[1];
+                 }
+                 //Explosive Trap Effect
+                 else if (m_spellInfo->SpellFamilyFlags & 0x00000004)
+@@ -611,6 +611,29 @@
+                 }
+                 break;
+             }
++            case SPELLFAMILY_SHAMAN:
++            {
++                // Lightning and Chain Lightning
++                if (m_spellInfo->SpellFamilyFlags & 0x0003LL)
++                {
++                    Unit::AuraList const& m_OverrideClassScript = m_caster->GetAurasByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
++                    for(Unit::AuraList::const_iterator i = m_OverrideClassScript.begin(); i != m_OverrideClassScript.end(); ++i)
++                    {
++                        // Increased Lightning Damage
++                        switch((*i)->GetModifier()->m_miscvalue)
++                        {
++                            case 4554:
++                            case 5142:
++                            case 6008:
++                            {
++                                damage += (*i)->GetModifier()->m_amount;
++                                break;
++                            }
++                        }
++                    }
++                }
++                break;
++            }
+         }
+ 
+         if (m_originalCaster && damage > 0)
+@@ -635,6 +658,12 @@
+         {
+             switch(m_spellInfo->Id )
+             {
++                // Summon Shadowfiends
++                case 39649:
++                {
++                    m_caster->CastSpell(unitTarget,m_spellInfo->EffectBasePoints[i],true);
++                    break;
++                }
+                 // Wrath of the Astromancer
+                 case 42784:
+                 {
+@@ -1745,6 +1774,39 @@
+                 return;
+             }
+ 
++            // Flametongue Weapon Proc
++            if(m_spellInfo->SpellFamilyFlags &0x0000000000200000LL)  
++            {
++                if(m_caster->GetTypeId()!=TYPEID_PLAYER)
++                    return;
++
++                if(!m_CastItem || !m_CastItem->IsEquipped())
++                    return;
++
++                WeaponAttackType attType=BASE_ATTACK;
++                if (m_CastItem->GetSlot() == EQUIPMENT_SLOT_OFFHAND)
++                    attType=OFF_ATTACK;
++
++                float wspeed = m_caster->GetAttackTime(attType)/1000.0f;
++                if (wspeed > 4.0) wspeed = 4.0f;
++                if (wspeed < 1.3) wspeed = 1.3f;
++                int32 EffectBasePoints0 = uint32(damage*wspeed/100.f);
++                m_caster->CastCustomSpell(unitTarget,10444,&EffectBasePoints0,NULL,NULL,true);
++                return;
++            }
++            // Flametongue Totem Proc
++            if(m_spellInfo->SpellFamilyFlags &0x0000000400000000LL)  
++            {
++                if(m_caster->GetTypeId()!=TYPEID_PLAYER)
++                    return;
++
++                float wspeed = m_caster->GetAttackTime(BASE_ATTACK)/1000.0f;
++                if (wspeed > 4.0) wspeed = 4.0f;
++                if (wspeed < 1.3) wspeed = 1.3f;
++                int32 EffectBasePoints0 = uint32(damage*wspeed/100.f);
++                m_caster->CastCustomSpell(unitTarget,16368,&EffectBasePoints0,NULL,NULL,true);
++                return;
++            }
+             break;
+     }
+ 
+@@ -2786,6 +2848,21 @@
+             m_caster->CastSpell(unitTarget,elixirs[rand_spell],true,m_CastItem);
+         }
+     }
++
++    // Alchemist's stone
++    if (m_spellInfo->SpellFamilyName == SPELLFAMILY_POTION)
++    {
++ 
++        Unit::AuraList const& mDummyAuras = unitTarget->GetAurasByType(SPELL_AURA_DUMMY);
++        for(Unit::AuraList::const_iterator i = mDummyAuras.begin();i != mDummyAuras.end(); ++i)
++        {
++            if ((*i)->GetId() == 17619)
++            {
++                int basepoints0 = damage * 0.4f;
++                m_caster->CastCustomSpell(unitTarget,21400,&basepoints0,NULL,NULL,true,m_CastItem,(*i));
++            }
++        }
++    }
+ }
+ 
+ void Spell::EffectEnergisePct(uint32 i)
+diff -r 330da3afea04 -r c79b607ee8ae src/game/SpellMgr.cpp
+--- a/src/game/SpellMgr.cpp	Sat Jun 05 11:44:37 2010 +0200
++++ b/src/game/SpellMgr.cpp	Sat Jun 05 20:59:27 2010 +0200
+@@ -439,7 +439,9 @@
+         {
+             if (spellInfo->SpellFamilyFlags & 0x00008000010000LL)
+                 return SPELL_POSITIVE_SHOUT;
+-
++            // Sunder Armor (vs Expose Armor)
++            if (spellInfo->SpellFamilyFlags & 0x00000000004000LL)
++                return SPELL_ARMOR_REDUCE;
+             break;
+         }
+         case SPELLFAMILY_WARLOCK:
+@@ -491,7 +493,13 @@
+ 
+             break;
+         }
+-
++        case SPELLFAMILY_ROGUE:
++        {
++            // Expose Armor (vs Sunder Armor)
++            if (spellInfo->SpellFamilyFlags & 0x00000000080000LL)
++                return SPELL_ARMOR_REDUCE;
++            break;
++        }
+         case SPELLFAMILY_POTION:
+             return spellmgr.GetSpellElixirSpecific(spellInfo->Id);
+     }
+diff -r 330da3afea04 -r c79b607ee8ae src/game/Unit.cpp
+--- a/src/game/Unit.cpp	Sat Jun 05 11:44:37 2010 +0200
++++ b/src/game/Unit.cpp	Sat Jun 05 20:59:27 2010 +0200
+@@ -7949,6 +7949,26 @@
+             {
+                 CastingTime = 500;
+             }
++            // Cone of Cold - 13.57%
++            else if ((spellProto->SpellFamilyFlags & 0x180200LL) && spellProto->SpellIconID == 35)
++            {
++                CastingTime = 475;
++            }
++            // Dragon's Breath - 13.57%
++            else if ((spellProto->SpellFamilyFlags & 0x800000LL) && spellProto->SpellIconID == 1548)
++            {
++                CastingTime = 475;
++            }
++            // Frost Nova - 13.57%
++            else if ((spellProto->SpellFamilyFlags & 0x80040LL) && spellProto->SpellIconID == 193)
++            {
++                CastingTime = 475;
++            }
++            // Blast Wave - 13.57%
++            else if ((spellProto->SpellFamilyFlags & 0x4000800000LL) && spellProto->SpellIconID == 292)
++            {
++                CastingTime = 475;
++            }
+             break;
+         case SPELLFAMILY_WARLOCK:
+             // Life Tap
+@@ -7995,10 +8015,10 @@
+             {
+                 CastingTime = 6300;
+             }
+-            // Corruption 93%
++            // Corruption 93.6%
+             else if ((spellProto->SpellFamilyFlags & 0x2LL) && spellProto->SpellIconID == 313)
+             {
+-                DotFactor = 0.93f;
++                DotFactor = 0.936f;
+             }
+             break;
+         case SPELLFAMILY_PALADIN:
+@@ -8045,6 +8065,16 @@
+             {
+                 return pdamage;
+             }
++            // Seal of Command - 20%
++            else if(spellProto->SpellFamilyFlags & 0x00000002000000LL)
++            {
++                return pdamage;
++            }
++            // Eye for an Eye
++            else if(spellProto->Id == 25997 )
++            {
++                CastingTime = 0;
++            }
+             break;
+         case  SPELLFAMILY_SHAMAN:
+             // totem attack
+@@ -8060,6 +8090,22 @@
+             // Lightning Shield (and proc shield from T2 8 pieces bonus ) 33% per charge
+             else if ((spellProto->SpellFamilyFlags & 0x00000000400LL) || spellProto->Id == 23552)
+                 CastingTime = 1155;                         // ignore CastingTimePenalty and use as modifier
++            // Lightning Overload - only half damage of original
++            else if (spellProto->AttributesEx5 & 128)
++            {
++                // Lightning Bolt proc
++                if (spellProto->SpellFamilyFlags & 1) 
++                    CastingTime = 1250; 
++                // Chain Lightning proc
++                else if (spellProto->SpellFamilyFlags & 2) 
++                    CastingTime = 1000; 
++            }
++            // Flametongue and Frostbrand Weapon
++            else if (spellProto->SpellFamilyFlags & 0x0000000001200000LL)
++                CastingTime = 350; 
++            // Flametongue Totem
++            else if (spellProto->SpellFamilyFlags & 0x0000000002000000LL)
++                CastingTime = 0; 
+             break;
+         case SPELLFAMILY_PRIEST:
+             // Mana Burn - 0% of Shadow Damage
+@@ -8098,6 +8144,16 @@
+             {
+                 CastingTime = 500;
+             }
++            // Shadow Word: Pain - 110%
++            else if ((spellProto->SpellFamilyFlags & 0x8000LL) && spellProto->SpellIconID == 234) 
++            {
++                DotFactor = 1.1;
++            }
++            // Shadow Word: Death - Backleash
++            else if (spellProto->Id == 32409) 
++            {
++                return pdamage;
++            }
+             break;
+         case SPELLFAMILY_DRUID:
+             // Hurricane triggered spell
+@@ -8352,9 +8408,24 @@
+         spellProto->Id == 22845 || spellProto->Id == 33504 ||
+         spellProto->Id == 34299 || spellProto->Id == 27813 ||
+         spellProto->Id == 27817 || spellProto->Id == 27818 ||
+-        spellProto->Id == 5707)
+-        return healamount;
+-
++        spellProto->Id == 30294 || spellProto->Id == 18790 ||
++        spellProto->Id == 31616 || spellProto->Id == 37382 ||
++        spellProto->Id == 38325 || spellProto->Id == 5707)
++    {
++        float heal = float(healamount);
++        float minval = pVictim->GetMaxNegativeAuraModifier(SPELL_AURA_MOD_HEALING_PCT);
++        if(minval)
++            heal *= (100.0f + minval) / 100.0f;
++
++        float maxval = pVictim->GetMaxPositiveAuraModifier(SPELL_AURA_MOD_HEALING_PCT);
++        if(maxval)
++            heal *= (100.0f + maxval) / 100.0f;
++
++        if (heal < 0) heal = 0;
++
++        return uint32(heal);
++    }
++   
+     int32 AdvertisedBenefit = SpellBaseHealingBonus(GetSpellSchoolMask(spellProto));
+     uint32 CastingTime = GetSpellCastTime(spellProto);
+ 
+@@ -8376,6 +8447,20 @@
+                 else if ((spellProto->SpellFamilyFlags & 0x0000000080000000LL) && (*i)->GetEffIndex() == 0)
+                     AdvertisedBenefit += (*i)->GetModifier()->m_amount;
+             }
++            // Libram of the Lightbringer
++            else if ((*i)->GetSpellProto()->Id == 34231)
++            {
++                // Holy Light
++                if ((spellProto->SpellFamilyFlags & 0x0000000080000000LL))
++                    AdvertisedBenefit += (*i)->GetModifier()->m_amount;
++            }
++            // Blessed Book of Nagrand || Libram of Light || Libram of Divinity
++            else if ((*i)->GetSpellProto()->Id == 32403 || (*i)->GetSpellProto()->Id == 28851 || (*i)->GetSpellProto()->Id == 28853)
++            {
++                // Flash of Light
++                if ((spellProto->SpellFamilyFlags & 0x0000000040000000LL))
++                    AdvertisedBenefit += (*i)->GetModifier()->m_amount;
++            }
+         }
+     }
+ 

@@ -1,0 +1,14 @@
+warrior:
+2 h mace
+1h axt
+
+pala:
+1h sword
+stangenwaffen
+2h sword
+2h axt
+1h axt
+
+hunter:
+schusswaffen
+1h axt

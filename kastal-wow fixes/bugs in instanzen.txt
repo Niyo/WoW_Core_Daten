@@ -1,0 +1,14 @@
+mechanar:
+truhe nach dem mechanischen viech benötigt keinen key
+
+SWP:
+Caster casten zu wenig und machen im nahkampf sogut wie keinen schaden..ID: 25367
+
+
+blutkessel:
+werdender höllenorc falsche display ID (17398) und ID 17429 (brauch display ID: 16332 auch
+tore müssen gescriptet werden
+
+shadowlab:
+2. boss übernimmt die grp net und lässt jeden gegen jeden kämpfen
+4. Boss Murmurs AE hat eine zu große reichweite

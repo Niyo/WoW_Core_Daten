@@ -1,0 +1,62 @@
+-- Allianz
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-2488.142',
+`position_y` =  '7231.018',
+`position_z` =  '19.175', `orientation` =  '2.511' WHERE  `playercreateinfo`.`race` =1;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-2488.142',
+`position_y` =  '7231.018',
+`position_z` =  '19.175', `orientation` =  '2.511' WHERE  `playercreateinfo`.`race` =3;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-2488.142',
+`position_y` =  '7231.018',
+`position_z` =  '19.175', `orientation` =  '2.511' WHERE  `playercreateinfo`.`race` =4;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-2488.142',
+`position_y` =  '7231.018',
+`position_z` =  '19.175', `orientation` =  '2.511' WHERE  `playercreateinfo`.`race` =7;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-2488.142',
+`position_y` =  '7231.018',
+`position_z` =  '19.175', `orientation` =  '2.511' WHERE  `playercreateinfo`.`race` =11;
+
+-- Horde
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-1437,460',
+`position_y` =  '7230,894',
+`position_z` =  '27.501' WHERE  `playercreateinfo`.`race` =2;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-1437,460',
+`position_y` =  '7230,894',
+`position_z` =  '27.501' WHERE  `playercreateinfo`.`race` =5;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-1437,460',
+`position_y` =  '7230,894',
+`position_z` =  '27.501' WHERE  `playercreateinfo`.`race` =6;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-1437,460',
+`position_y` =  '7230,894',
+`position_z` =  '27.501' WHERE  `playercreateinfo`.`race` =8;
+
+UPDATE  `playercreateinfo` SET  `map` =  '530',
+`zone` =  '3518',
+`position_x` =  '-1437,460',
+`position_y` =  '7230,894',
+`position_z` =  '27.501' WHERE  `playercreateinfo`.`race` =10;

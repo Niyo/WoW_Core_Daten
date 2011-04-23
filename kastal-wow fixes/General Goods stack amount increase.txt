@@ -1,0 +1,3 @@
+UPDATE `item_template` SET  `BuyCount` =  '50', `stackable` =  '200' WHERE entry IN (SELECT item from npc_vendor WHERE entry = 55883);
+UPDATE `item_template` SET  `BuyCount` =  '1', `stackable` =  '1' WHERE entry = 22522;
+UPDATE `item_template` SET  `BuyCount` =  '1', `stackable` =  '1' WHERE entry = 20748;

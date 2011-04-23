@@ -1,0 +1,104 @@
+-- Stormwind
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =15008;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =20381;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =7410;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =15351;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '2500',
+`maxdmg` =  '3000',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =14981;
+
+-- Wache --
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '71',
+`maxlevel` =  '72',
+`minhealth` =  '15000',
+`maxhealth` =  '17000',
+`mindmg` =  '3000',
+`maxdmg` =  '3500',
+`attackpower` =  '1489' WHERE  `creature_template`.`entry` =68;
+
+-- Stormwind end --
+
+-- Thunderbluff --
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =3890;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =15006;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =20385;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '52000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =14942;
+
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '72',
+`maxlevel` =  '72',
+`minhealth` =  '50000',
+`maxhealth` =  '22000',
+`mindmg` =  '4500',
+`maxdmg` =  '4750',
+`mechanic_immune_mask` =  '617299803' WHERE  `creature_template`.`entry` =15350;
+
+-- Wache --
+UPDATE  `oregon_world_new`.`creature_template` SET  `minlevel` =  '71',
+`maxlevel` =  '72',
+`minhealth` =  '15000',
+`maxhealth` =  '17000',
+`mindmg` =  '3000',
+`maxdmg` =  '3500',
+`attackpower` =  '1489' WHERE  `creature_template`.`entry` =3084;
+
+-- Thunderbluff end --

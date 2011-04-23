@@ -1,0 +1,9 @@
+UPDATE `creature_template` SET  `minhealth` =  '1062250',
+`maxhealth` =  '1062250' WHERE  `creature_template`.`entry` =22949;
+UPDATE `creature_template` SET  `minhealth` =  '1222550',
+`maxhealth` =  '1222550' WHERE  `creature_template`.`entry` =22950;
+UPDATE `creature_template` SET  `minhealth` =  '1222550',
+`maxhealth` =  '1222550' WHERE  `creature_template`.`entry` =22951;
+UPDATE `creature_template` SET  `minhealth` =  '1327900',
+`maxhealth` =  '1327900' WHERE  `creature_template`.`entry` =22952;
+

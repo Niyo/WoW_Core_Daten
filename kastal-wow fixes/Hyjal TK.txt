@@ -1,0 +1,14 @@
+HYJAL
+
+17902 friendly npc die spieler attacken
+17903 friendly npc die spieler attacken
+faction: 1720
+17905 banshee 8000hp
+
+kazragol addwellen spawnen zu schnell hintereinander
+TK
+
+Phase 3 ADDS RESPAWNEN ABER KEINE WAFFEN
+Phase 4 MIND CONTROLL BUFF NIT ANGEZEIGT
+Gravity lapse = Buff, kann man wegklicken, phoenixe fliegen, bleiben normal am boden, gravity loss schießt einen nit hoch wenn man boden berührt
+shock barriere spawnt nit, castet keinen pyro, shockbarriere macht er bei gravity lapse

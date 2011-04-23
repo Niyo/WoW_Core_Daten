@@ -1,0 +1,29 @@
+Ranged waffen: 3750
+Offhand: 1125
+Mainhand (caster): 3150
+2 Hand: 3750
+Mainhand (melee): 2625
+Zauberstab/Wurfwaffe: 1000
+Hunter Mainhand: 650
+Schild: 1875
+Hunter Offhand: 650
+
+Update npc_vendor set ExtendedCost = 2361 where item = 35001;
+Update npc_vendor set ExtendedCost = 2361 where item = 35046;
+Update npc_vendor set ExtendedCost = 2361 where item = 34994;
+Update npc_vendor set ExtendedCost = 2361 where item = 35025;
+Update npc_vendor set ExtendedCost = 2361 where item = 35031;
+Update npc_vendor set ExtendedCost = 2361 where item = 35035;
+Update npc_vendor set ExtendedCost = 2361 where item = 35056;
+Update npc_vendor set ExtendedCost = 2361 where item = 35052;
+Update npc_vendor set ExtendedCost = 2361 where item = 35070;
+Update npc_vendor set ExtendedCost = 2361 where item = 35081;
+Update npc_vendor set ExtendedCost = 2361 where item = 35086;
+Update npc_vendor set ExtendedCost = 2361 where item = 35006;
+Update npc_vendor set ExtendedCost = 2361 where item = 35092;
+Update npc_vendor set ExtendedCost = 2361 where item = 35096;
+Update npc_vendor set ExtendedCost = 2361 where item = 35009;
+Update npc_vendor set ExtendedCost = 2361 where item = 35063;
+Update npc_vendor set ExtendedCost = 2361 where item = 35114;
+
+
